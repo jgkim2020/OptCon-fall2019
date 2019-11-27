@@ -48,6 +48,7 @@ for iter = 1:maxIter
     if iter == 1
         figure();
         plot(nominalt, nominaly, '--');
+        xlabel(sprintf('$t$'), 'interpreter', 'latex');
         hold on;
     end
     % find C (C1, C2) and gamma
@@ -91,6 +92,7 @@ for iter = 1:maxIter
     if iter == 1
         figure();
         plot(nominalt, nominaly, '--');
+        xlabel(sprintf('$t$'), 'interpreter', 'latex');
         hold on;
     end
     % find C (C1, C2) and gamma
@@ -141,6 +143,7 @@ for iter = 1:maxIter
     if iter == 1
         figure();
         plot(nominalt, nominaly, '--');
+        xlabel(sprintf('$t$'), 'interpreter', 'latex');
         hold on;
     end
     % find dy(T)/dy(0)
@@ -157,7 +160,7 @@ for iter = 1:maxIter
     dely2_init = M(1+p:p+q,:)\(y2_term - nominalyT(1+p:p+q));
     
     err = max(abs(dely2_init));
-    fprintf('iteration %d, error %f \n', iter-1, err);
+    fprintf('iteration %d, error %f, num intervals %d \n', iter-1, err, length(nominalt)-1);
     if err < epsilon
         break;
     else
